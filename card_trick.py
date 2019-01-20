@@ -56,7 +56,8 @@ def trick():
     		finish=raw_input().lower()
     		if finish in done1:
     			print('think about your card and say it aloud twice')
-    			if choice in done2:
+    			finished=raw_input().lower()
+			if finished in done2:
     				print('we\'ve removed your card, Jh  Qs  Qd  Kd  Kh') 
     	if dire in right:
     		print('right, good choice, now mentaly select a card, but don\'t itype it! Jd  Qc  Js  Qh  Kc  Kd')

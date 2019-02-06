@@ -1,22 +1,36 @@
+import time
 from common import Quit_Exception, ready_to_quit
+
+d=u'\u2666'
+h=u'\u2665'
+s=u'\u2660'
+c=u'\u2663'
+
+delay=10
+
+
 def handle_suit(suit):
         left={'left','l'}
         right={'right','r'}
         print('{0}. interesting choice. now, don\'t think of {0} and randomly pick a direction. left   right'.format(suit))
         dire=raw_input().lower()
-        if dire in left:
+	while dire not in left and dire not in right:
+		print('Please enter a direction \n')        
+        	dire=raw_input().lower()
+	if dire in left:
             handle_side('left')
         if dire in right:
             handle_side('right')
 def handle_side(side):
-                done1={'done',''}
-                print('{}, good choice, now mentaly select a card, but don\'t type it! Jd  Qc  Js  Qh  Kc  Kd'.format(side))
+                print(f'{sides}, good choice, now mentaly select a card, but don\'t type it! J{d}  Q{c}  J{s}  Q{h}  K{c}  K{d}')
+      		time.sleep(delay)
+		print('now hit return')
                 finish=raw_input().lower()
-                if finish in done1:
-                        print('think about your card and say it aloud twice')
-                        finished=raw_input().lower()
-                        if finished in done1:
-                                print('we\'ve removed your card, Jh  Qs  Qd  Ks  Kh')
+                print('think about your card and say it aloud twice')
+                time.sleep(delay)
+		print('now hit return')
+		finished=raw_input().lower()
+                print(f'we\'ve removed your card, J{h}  Q{s}  Q{d}  K{s}  K{h}')
 def trick():
     spade={'spades','spade','s'}
     heart={'hearts','heart','h'}
@@ -26,10 +40,10 @@ def trick():
     choice=raw_input().lower()
     ready_to_quit(choice)
     if choice in spade:
-	handle_suit('spade')
+	handle_suit('spades')
     if choice in heart: 
-	handle_suit('heart')
+	handle_suit('hearts')
     if choice in club:
-	handle_suit('club')
+	handle_suit('clubs')
     if choice in diamond:
-	handle_suit('diamond')
+	handle_suit('diamonds')

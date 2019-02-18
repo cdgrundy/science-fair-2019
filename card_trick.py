@@ -1,3 +1,4 @@
+import os
 import time
 from common import Quit_Exception, ready_to_quit
 
@@ -10,46 +11,47 @@ delay=5
 
 
 def handle_suit(suit):
-        left={'left','l'}
-        right={'right','r'}
-        print('{0}. interesting choice. now, don\'t think of {0} and randomly pick a direction. left   right'.format(suit))
+        left={'droit','d'}
+        right={'gauche','g'}
+        print('{0}. Choix interessant. Maintenant, ne pense pas au {0} et choisi un direction au hasard. droit   gauche'.format(suit))
         dire=input().lower()
         while dire not in left and dire not in right:
-            print('Please enter a direction \n')        
+            print('S\'il vous plait, entre un direction \n')        
             dire=input().lower()
         if dire in left:
-            handle_side('left') 
+            handle_side('droit') 
         if dire in right:
-            handle_side('right')
+            handle_side('gauche')
 
 
 def handle_side(side):
-        print(f'{side}, good choice, now mentaly select a card, but don\'t type it! J{d}  Q{c}  J{s}  Q{h}  K{c}  K{d}')
+        print(f'{side}, bon choix, maintenant choisi un carte mentalement, mais ne tapez pas! J{d}  Q{c}  J{s}  Q{h}  K{c}  K{d}')
         time.sleep(delay)
-        print('now hit return')
+        print('maintenant frappé le retour')
         finish=input().lower()
+        os.system('clear')
         print('think about your card and say it aloud twice') 
         time.sleep(delay)
-        print('now hit return')
+        print('maintenant frappé le retour')
         finished=input().lower()
-        print(f'we\'ve removed your card, J{h}  Q{s}  Q{d}  K{s}  K{h}')
+        print(f'we removed your card, J{h}  Q{s}  Q{d}  K{s}  K{h}')
         time.sleep(delay*3)
 
 
 def trick():
-    spade={'spades','spade','s'}
-    heart={'hearts','heart','h'}
-    club={'clubs','club','c'}
-    diamond={'diamonds','diamond','d'}
-    print('type Q to quit')
-    print('\nthis trick will blow your mind, pick a suit, spades  hearts  clubs  diamonds')
+    spade={'pique','piques','p'}
+    heart={'coeurs','coeur','c'}
+    club={'clubs','club','cl'}
+    diamond={'diamants','diamant','d'}
+    print('Tapez Q pour quitter')
+    print('\ncette astuce va vous étonner, choisissez un costume, pique, cœurs, clubs, diamants')
     choice=input().lower()
     ready_to_quit(choice)
     if choice in spade:
-        handle_suit('spades')
+        handle_suit('piques')
     if choice in heart: 
-        handle_suit('hearts')
+        handle_suit('coeurs')
     if choice in club:
         handle_suit('clubs')
     if choice in diamond:
-        handle_suit('diamonds')
+        handle_suit('diamants')

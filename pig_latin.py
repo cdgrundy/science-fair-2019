@@ -5,8 +5,8 @@ vowels=['a','e','i','o','u']
 blends=['br','bl','cr','cl','ch','cz','dr','dj','dw','fr','fl','gr','gl','gn','gw','kn','kl','kr','ll','mn','pn','ps','pl','pr','pt','qu','sh','sl','sc','sk','sm','sn','sp','st','sv','sw','sch','scl','scr','spr','squ','str','tr','th','ts','wr','wh'
 ]
 def translate():
-    print('type Q to quit')
-    sentence=input('pig latin translator\n enter text\n ')
+    print('Tapez Q pour quitter')
+    sentence=input('traducteur de pig latin \n entre la text\n ')
     ready_to_quit(sentence)
     words=sentence.split()
     for word in words:

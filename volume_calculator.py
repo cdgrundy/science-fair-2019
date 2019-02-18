@@ -1,25 +1,28 @@
 from common import Quit_Exception, ready_to_quit
 def calculate():
-        print('type Q to quit')
-        print('I can calculate area or volume for you')
+        print('Tapez Q pour quitter')
+        print('Je peut calculer l\'aire ou le volume')
         try:
-            length=input('length=')
+            length=input('Longueur=')
         except NameError:
-            print('please input a whole nunber')
+            print('Veuillez entrer un numéro entier:')
         except SyntaxError:
-            print('please input a whole number')
-            ready_to_quit(length)
-            width=input('width=')
+            print('Veuillez entrer un numéro entier:')
+            ready_to_quit(length) 
+            
+        try:
+            width=input('largeur=')
         except NameError:
-            print('please input a whole number')
+            print('Veuillez entrer un numéro entier:')
         except SyntaxError:
-            print('please input a whole number')
+            print('Veuillez entrer un numéro entier:')
             ready_to_quit(width)
-            height=input('(if you wish to calculate area, set height to 1)\n height=')
+            
+        try:
+            height=input('(Si tu veut calculer l\'aire, mis la taille a 1)\n la taille=')
         except NameError:
-            print('please input a whole number')
+            print('Veuillez entrer un numéro entier:')
         except SyntaxError:
-            print('please input a whole number')
+            print('Veuillez entrer un numéro entier:')
             ready_to_quit(height)
-            print('the answer is {}'.format(int(length)*int(height)*int(width)))
-
+        print('Le reponse est {}.'.format(int(length)*int(height)*int(width)))

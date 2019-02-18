@@ -1,88 +1,55 @@
+import time
+from common import Quit_Exception, ready_to_quit
+
+d=u'\u2666'
+h=u'\u2665'
+s=u'\u2660'
+c=u'\u2663'
+
+delay=5
+
+
+def handle_suit(suit):
+        left={'left','l'}
+        right={'right','r'}
+        print('{0}. interesting choice. now, don\'t think of {0} and randomly pick a direction. left   right'.format(suit))
+        dire=input().lower()
+        while dire not in left and dire not in right:
+            print('Please enter a direction \n')        
+            dire=input().lower()
+        if dire in left:
+            handle_side('left') 
+        if dire in right:
+            handle_side('right')
+
+
+def handle_side(side):
+        print(f'{side}, good choice, now mentaly select a card, but don\'t type it! J{d}  Q{c}  J{s}  Q{h}  K{c}  K{d}')
+        time.sleep(delay)
+        print('now hit return')
+        finish=input().lower()
+        print('think about your card and say it aloud twice') 
+        time.sleep(delay)
+        print('now hit return')
+        finished=input().lower()
+        print(f'we\'ve removed your card, J{h}  Q{s}  Q{d}  K{s}  K{h}')
+        time.sleep(delay*3)
+
+
 def trick():
-    done2={'done',''}
-    done1={'done',''}
-    left={'left','l'}
-    right={'right','r'}
     spade={'spades','spade','s'}
     heart={'hearts','heart','h'}
     club={'clubs','club','c'}
     diamond={'diamonds','diamond','d'}
-    print('this trick will blow your mind, pick a suit, spades  hearts  clubs  diamonds')
-    choice=raw_input().lower()
+    print('type Q to quit')
+    print('\nthis trick will blow your mind, pick a suit, spades  hearts  clubs  diamonds')
+    choice=input().lower()
+    ready_to_quit(choice)
     if choice in spade:
-    	print('spades. interesting choice. now, don\'t think of spades and randomly pick a direction. left   right')
-    	dire=raw_input().lower()
-    	if dire in left:
-    		print('left, good choice, now mentaly select a card, but don\'t type it! Jd  Qc  Js  Qh  Kc  Kd')
-    		finish=raw_input().lower()
-    		if finish in done1:
-    			print('think about your card and say it aloud twice')
-    			finished=raw_input().lower()
-    			if finished in done2:
-    				print('we\'ve removed your card, Jh  Qs  Qd  Kd  Kh') 
-    	if dire in right:
-    		print('right, good choice, now mentaly select a card, but don\'t type it! Jd  Qc  Js  Qh  Kc  Kd')
-    		finish=raw_input().lower()
-    		if finish in done1:
-    			print('think about your card and say it aloud twice')
-    			finished=raw_input().lower()
-    			if finished in done2:
-    				print('we\'ve removed your card, Jh  Qs  Qd  Ks  Kh')
-    if choice in heart:
-    	print('hearts. interesting choice. now, don\'t think of hearts and randomly pick a direction. left   right')
-    	dire=raw_input().lower()
-    	if dire in left:
-    		print('left, good choice, now mentaly select a card, but don\'t   type it! Jd  Qc  Js  Qh  Kc  Kd')
-    		finish=raw_input().lower()
-    		if finish in done1:
-    			print('think about your card and say it aloud twice')
-    			finished=raw_input().lower()
-    			if finished in done2:
-    				print('we\'ve removed your card, Jh  Qs  Qd  Kd  Kh') 
-    	if dire in right:
-    		print('right, good choice, now mentaly select a card, but don\'t type it! Jd  Qc  Js  Qh  Kc  Kd')
-    		finish=raw_input().lower()
-    		if finish in done1:
-    			print('think about your card and say it aloud twice')
-    			finished=raw_input().lower()
-    			if finished in done2:
-    				print('we\'ve removed your card, Jh  Qs  Qd  Ks  Kh')
-    
+        handle_suit('spades')
+    if choice in heart: 
+        handle_suit('hearts')
     if choice in club:
-    	print('clubs. interesting choice. now, don\'t think of clubs and randomly pick a direction. left   right')
-    	dire=raw_input().lower()
-    	if dire in left:
-    		print('left, good choice, now mentaly select a card, but don\'t   type it! Jd  Qc  Js  Qh  Kc  Kd')
-    		finish=raw_input().lower()
-    		if finish in done1:
-    			print('think about your card and say it aloud twice')
-    			finished=raw_input().lower()
-			if finished in done2:
-    				print('we\'ve removed your card, Jh  Qs  Qd  Kd  Kh') 
-    	if dire in right:
-    		print('right, good choice, now mentaly select a card, but don\'t itype it! Jd  Qc  Js  Qh  Kc  Kd')
-    		finish=raw_input().lower()
-    		if finish in done1:
-    			print('think about your card and say it aloud twice')
-    			finished=raw_input().lower()
-    			if finished in done2:
-    				print('we\'ve removed your card, Jh  Qs  Qd Kd  Kh')
+        handle_suit('clubs')
     if choice in diamond:
-    	print('diamonds. interesting choice. now, don\'t think of diamonds and randomly pick a direction. left   right')
-    	dire=raw_input().lower()
-    	if dire in left:
-    		print('left, good choice, now mentaly select a card, but don\'t  type it! Jd  Qc  Js  Qh  Kc  Kd')
-    		finish=raw_input().lower()
-    		if finish in done1:
-    			print('think about your card and say it aloud twice')
-    			finished=raw_input().lower()
-    			if finished in done2:
-    				print('we\'ve removed your card, Jh  Qs  Qd Ks  Kh')
-    	if dire in right:
-    		print('right, good choice, now mentaly select a card, but don\'t type it! Jd  Qc  Js Qh  Kc  Kd')
-    		finish=raw_input().lower()
-    		if finish in done1:
-    			print('think about your card and say it aloud twice')
-    			finished=raw_input().lower()
-    			if finished in done2:
-    				print('we\'ve removed your card, Jh  Qs  Qd  Ks  Kh')
+        handle_suit('diamonds')

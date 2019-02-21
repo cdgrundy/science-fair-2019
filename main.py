@@ -1,12 +1,12 @@
 import os 
 from common import Quit_Exception
 from calculator import calculator
-from volume_calculator import calculate
+from area_calculator import calculate
 from card_trick import trick
 from pig_latin import translate
 while True:
     os.system('clear')
-    print('\n 1. traducteur de pig latin \n\n 2. tour de cartes \n\n 3. calculateur de l\'aire / volume')
+    print('\n 1. traducteur de pig latin \n\n 2. tour de cartes \n\n 3. calculateur de l\'aire \n\n 4. calculatrice')
     choice=input('\nchoisi un\n')
     os.system('clear')
     try:

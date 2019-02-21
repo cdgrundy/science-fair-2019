@@ -30,11 +30,11 @@ def handle_side(side):
         print('maintenant frappé le retour')
         finish=input().lower()
         os.system('clear')
-        print('think about your card and say it aloud twice') 
+        print('pense a ton carte et dit a voix haute') 
         time.sleep(delay)
         print('maintenant frappé le retour')
         finished=input().lower()
-        print(f'we removed your card, J{h}  Q{s}  Q{d}  K{s}  K{h}')
+        print(f'on a enlevé to carte, J{h}  Q{s}  Q{d}  K{s}  K{h}')
         time.sleep(delay*3)
 
 
